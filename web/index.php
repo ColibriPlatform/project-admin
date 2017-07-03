@@ -1,4 +1,9 @@
 <?php
+/**
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.md
+ */
+
 use colibri\base\components\Env;
 use colibri\base\components\WebApplication;
 

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.md
+ */
 
 namespace app\modules\site\admin\controllers;
 
@@ -28,23 +32,4 @@ class DefaultController extends Controller
         return $this->render('index');
     }
 
-    /**
-     * Display configuration form
-     * @return mixed
-     */
-    /*
-    public function actionConfig()
-    {
-        $model = new Config();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            sleep (3);
-            return $this->redirect(['index']);
-        }
-
-        return $this->render('config', [
-            'model' => $model,
-        ]);
-    }
-    */
 }

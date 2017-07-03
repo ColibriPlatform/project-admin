@@ -1,4 +1,8 @@
 <?php
+/**
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.md
+ */
 
 namespace app\modules\site;
 

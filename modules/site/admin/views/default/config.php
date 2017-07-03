@@ -1,4 +1,9 @@
 <?php
+/**
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.md
+ */
+
 /* @var $this yii\web\View */
 /* @var $model app\modules\site\admin\models\Config */
 
