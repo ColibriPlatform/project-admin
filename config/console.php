@@ -1,4 +1,6 @@
 <?php
-$config = require __DIR__ . '/common.php';
-
-return $config;
+return [
+    'id' => 'colibri-project-basic',
+    'name' => 'Colibri project basic',
+    'basePath' => realpath(__DIR__ . '/..'),
+];
