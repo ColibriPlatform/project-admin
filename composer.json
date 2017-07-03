@@ -1,0 +1,43 @@
+{
+    "name": "colibri-platform/project-admin",
+    "description": "Skeletton for a Colibri based project with an admin interface.",
+    "keywords": ["yii2", "project", "colibri", "admin"],
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "colibri-platform/base" : "@dev",
+        "colibri-platform/admin" : "@dev"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "*",
+        "yiisoft/yii2-gii": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "bower-asset-library": "vendor/bower"
+            },
+             "ignore-files": {
+                "bower-asset/bootstrap": [
+                    "!dist",
+                    "*"
+                ],
+                "bower-asset/fontawesome": [
+                    "!css",
+                    "!fonts",
+                    "*"
+                ],
+                "bower-asset/adminlte": [
+                    "!dist",
+                    "*"
+                ],
+                "bower-asset/jquery": [
+                    "!dist",
+                    "*"
+                ]
+            }
+        }
+    }
+
+}

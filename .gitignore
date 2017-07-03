@@ -1,0 +1,13 @@
+# Eclipse project files
+.buildpath
+.project
+.settings
+.externalToolBuilders
+
+# composer stuff
+/vendor
+composer.lock
+
+# project configuration file
+.env
+
