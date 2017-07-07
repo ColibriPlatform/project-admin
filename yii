@@ -10,7 +10,7 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-\colibri\base\components\Env::Load(__DIR__ . '/../.env');
+\colibri\base\components\Env::Load(__DIR__ . '/.env');
 
 defined('YII_DEBUG') or define('YII_DEBUG', (boolean) getenv('YII_DEBUG'));
 defined('YII_ENV') or define('YII_ENV', getenv('YII_ENV')? getenv('YII_ENV') : 'prod');
