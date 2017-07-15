@@ -35,15 +35,15 @@ $config = [
     ],
 ];
 
-if (YII_ENV_DEV) {
-    if (YII_DEBUG && isset($extensions['yiisoft/yii2-debug'])) {
-        $config['bootstrap'][] = 'debug';
-        $config['modules']['debug'] = [
-            'class' => 'yii\debug\Module',
-            'allowedIPs' => ['127.0.0.1', '::1'],
-        ];
-    }
+if (YII_DEBUG && isset($extensions['yiisoft/yii2-debug'])) {
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+        'allowedIPs' => ['127.0.0.1', '::1'],
+    ];
+}
 
+if (YII_ENV_DEV) {
     if (isset($extensions['yiisoft/yii2-gii'])) {
         $config['bootstrap'][] = 'gii';
         $config['modules']['gii'] = [
