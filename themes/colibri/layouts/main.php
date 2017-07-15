@@ -6,14 +6,30 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-
+use colibri\admin\models\Navigation;
 use app\modules\site\SiteAsset;
 
 SiteAsset::register($this);
+
+$items = Navigation::getNavItems('site-mainmenu');
+
+$additionnalItems =  [
+
+    '<li class="divider"></li>',
+    [
+        'label' => '<i class="glyphicon glyphicon-cog"></i>',
+        'url' => ['/admin'],
+        'visible' => !Yii::$app->user->isGuest,
+    ]
+];
+
+$items = ArrayHelper::merge($items, $additionnalItems);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -40,22 +56,7 @@ SiteAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'encodeLabels' => false,
-        'items' => [
-            ['label' => 'Home', 'url' => ['/']],
-            ['label' => 'Contact', 'url' => ['/site/default/contact']],
-            ['label' => 'Login', 'url' => ['/admin/login'], 'visible' => Yii::$app->user->isGuest ],
-            ['label' => 'Profil', 'url' => ['/user/settings'], 'visible' => !Yii::$app->user->isGuest ],
-            ['label' => 'Logout', 'url' => ['/user/security/logout'], 'visible' => !Yii::$app->user->isGuest,
-                        'linkOptions' => ['data-method' => 'post']],
-
-            '<li class="divider"></li>',
-            [
-                'label' => '<i class="glyphicon glyphicon-cog"></i>',
-                'url' => ['/admin'],
-                'visible' => !Yii::$app->user->isGuest,
-            ]
-
-        ],
+        'items' => $items,
     ]);
     NavBar::end();
     ?>
