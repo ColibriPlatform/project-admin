@@ -6,6 +6,8 @@
 
 namespace app\modules\site;
 
+use colibri\admin\models\Navigation;
+
 /**
  * site module definition class
  */
@@ -33,13 +35,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
     {
         /* @var $app \yii\web\Application */
         $view = $app->getView();
-
-        $view->on('colibri.admin.initSideNav', function($event) {
-            $items = &$event->data;
-            $items[] = ['label' => 'Site', 'icon' => 'cube', 'url' => ['#'], 'items' => [
-                    ['label' => \Yii::t('admin', 'Configuration'), 'url' => ['/admin/site/default/config'], 'icon' => 'wrench'],
-                ]];
-        });
 
         $view->on('colibri.admin.dashboard.top-1', function($event) use ($view) {
             echo $view->render('@app/modules/site/admin/views/widgets/smallbox.php', [
@@ -107,5 +102,74 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
             ]);
 
         });
+    }
+
+    /**
+     * Module afterInstall method (called just after application installation)
+     *
+     * @return string Migration messages
+     */
+    public static function afterInstall()
+    {
+        $siteNav = Navigation::findOne(['slug' => 'site-mainmenu']);
+
+        $items = [
+            [
+                'name' => 'Home',
+                'slug' => 'home',
+                'route' => '/'
+            ],
+            [
+                'name' => 'Contact',
+                'slug' => 'contact',
+                'route' => '/site/default/contact'
+            ],
+            [
+                'name' => 'Login',
+                'slug' => 'login',
+                'route' => '/admin/login',
+                'access_roles' => '!registered',
+            ],
+            [
+                'name' => 'Profile',
+                'slug' => 'profile',
+                'route' => '/user/settings',
+                'access_roles' => 'registered',
+            ],
+            [
+                'name' => 'Logout',
+                'slug' => 'logout',
+                'route' => '/user/security/logout',
+                'access_roles' => 'registered',
+                'link_options' => 'data-method=post',
+            ],
+        ];
+
+        foreach ($items as $item) {
+            $node = new Navigation($item);
+            $node->appendTo($siteNav);
+        }
+
+        $adminNav = Navigation::findOne(['slug' => 'admin-mainmenu']);
+
+        $site = new Navigation([
+            'name' => 'Site',
+            'slug' => 'admin-site',
+            'icon' => 'cube',
+            'route' => 'site'
+        ]);
+
+        $site->appendTo($adminNav);
+
+        $conf = new Navigation([
+            'name' => 'Configuration',
+            'slug' => 'admin-site-configuration',
+            'icon' => 'gear',
+            'route' => 'site/configuration']
+        );
+
+        $conf->appendTo($site);
+
+        return '';
     }
 }
