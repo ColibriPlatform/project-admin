@@ -1,6 +1,6 @@
 <?php
 return [
-    'id' => 'colibri-project-basic',
-    'name' => 'Colibri project basic',
+    'id' => 'colibri-project-admin',
+    'name' => 'Colibri project admin',
     'basePath' => realpath(__DIR__ . '/..'),
 ];
