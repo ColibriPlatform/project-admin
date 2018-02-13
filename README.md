@@ -1,6 +1,6 @@
 # Colibri admin project template
 
-Basic Skeletton to build a Colibri based application
+Basic Skeletton to build a Colibri based application with an [admin interface](https://github.com/ColibriPlatform/admin).
 
 ## 1. Install
 
