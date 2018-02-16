@@ -5,7 +5,6 @@ Basic Skeletton to build a Colibri based application with an [admin interface](h
 ## 1. Install
 
 ```bash
-composer global require "fxp/composer-asset-plugin:^1.3.1"
 composer create-project --stability dev colibri-platform/project-admin
 ```
 

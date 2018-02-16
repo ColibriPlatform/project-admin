@@ -7,6 +7,9 @@ $config = [
     'name' => 'Colibri project admin',
     'basePath' => realpath(__DIR__ . '/..'),
     'defaultRoute' => 'site/default',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+    ],
     'components' => [
         'view' => [
             'theme' => [
@@ -16,6 +19,13 @@ $config = [
                     '@colibri/base/views' => '@app/themes/colibri',
                 ],
             ]
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => true,
         ],
     ],
     'modules' => [
