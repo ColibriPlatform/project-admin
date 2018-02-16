@@ -102,6 +102,10 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
             ]);
 
         });
+
+        $app->urlManager->addRules([
+            'admin/site/configuration' => 'admin/site/default/config',
+        ]);
     }
 
     /**
