@@ -5,7 +5,7 @@ Basic Skeletton to build a Colibri based application with an [admin interface](h
 ## 1. Install
 
 ```bash
-composer create-project --stability dev colibri-platform/project-admin
+composer create-project colibri-platform/project-admin
 ```
 
 ## 2. Run

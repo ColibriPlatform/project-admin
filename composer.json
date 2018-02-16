@@ -10,8 +10,8 @@
 	"type" : "project",
 	"license" : "MIT",
 	"require" : {
-		"colibri-platform/base" : "@dev",
-		"colibri-platform/admin" : "@dev"
+		"colibri-platform/base" : "~1.0",
+		"colibri-platform/admin" : "~1.0"
 	},
 	"require-dev" : {
 		"yiisoft/yii2-debug" : "~2.0.0",
