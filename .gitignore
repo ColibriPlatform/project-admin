@@ -11,3 +11,5 @@ composer.lock
 # project configuration file
 .env
 
+# distribution folder
+/dist
