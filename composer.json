@@ -10,7 +10,6 @@
 	"type" : "project",
 	"license" : "MIT",
 	"require" : {
-		"colibri-platform/base" : "~1.0",
 		"colibri-platform/admin" : "~1.0"
 	},
 	"require-dev" : {
